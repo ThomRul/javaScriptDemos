@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV de Rulens Thomas</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+  const app = document.querySelector('#app');
+
+  // On crée le la div principale
+  const cvContainer = document.createElement("div");
+  const cvContainerClass = document.createAttribute("class");
+  cvContainerClass.value = "cv-container";
+  cvContainer.setAttributeNode(cvContainerClass);
+
+  // En-tête
+  const header = document.createElement("header");
+
+  // on ajoute la photo
+  const photo = document.createElement("img");
+  const photoSrc = document.createAttribute("src");
+  photoSrc.value = "https://images.pexels.com/photos/220429/pexels-photo-220429.jpeg?cs=srgb&dl=pexels-pixabay-220429.jpg&fm=jpg";
+  const photoAlt = document.createAttribute("alt");
+  photoAlt.value = "Photo de Rulens Thomas";
+  photo.setAttributeNode(photoSrc);
+  photo.setAttributeNode(photoAlt);
+
+  const h1 = document.createElement("h1");
+  const h1Text = document.createTextNode("Rulens Thomas");
+  h1.appendChild(h1Text);
+
+  // Ajout du lien LinkedIn
+  const linkedinLink = document.createElement("a");
+  const linkedinHref = document.createAttribute("href");
+  linkedinHref.value = "https://www.linkedin.com/";
+  const linkedinTarget = document.createAttribute("target");
+  linkedinTarget.value = "_blank";
+  linkedinLink.setAttributeNode(linkedinHref);
+  linkedinLink.setAttributeNode(linkedinTarget);
+  const linkedinText = document.createTextNode("Profil LinkedIn");
+  linkedinLink.appendChild(linkedinText);
+
+  header.append(photo, h1, linkedinLink);
+
+  // Section
+  const infoSection = document.createElement("section");
+  const infoTitle = document.createElement("h2");
+  const infoTitleText = document.createTextNode("Informations personnelles");
+  infoTitle.appendChild(infoTitleText);
+  const infoContent = document.createElement("p");
+  const infoContentText = document.createTextNode("Email: rulens.thomas@email.com | Téléphone: 0499-00-00-00 | Adresse: somewhere over the raibow");
+  infoContent.appendChild(infoContentText);
+  infoSection.append(infoTitle, infoContent);
+
+  // Section
+  const expSection = document.createElement("section");
+  const expTitle = document.createElement("h2");
+  const expTitleText = document.createTextNode("Expérience professionnelle");
+  expTitle.appendChild(expTitleText);
+
+  const job1 = document.createElement("div");
+  const job1Title = document.createElement("h3");
+  const job1TitleText = document.createTextNode("Développeur JAVA- Bstorm");
+  job1Title.appendChild(job1TitleText);
+  const job1Date = document.createElement("p");
+  const job1DateText = document.createTextNode("2018 - Présent");
+  job1Date.appendChild(job1DateText);
+  const job1Desc = document.createElement("p");
+  const job1DescText = document.createTextNode("codage avec les pieds");
+  job1Desc.appendChild(job1DescText);
+  job1.append(job1Title, job1Date, job1Desc);
+
+  const job2 = document.createElement("div");
+  const job2Title = document.createElement("h3");
+  const job2TitleText = document.createTextNode("JavaPasBien");
+  job2Title.appendChild(job2TitleText);
+  const job2Date = document.createElement("p");
+  const job2DateText = document.createTextNode("2015 - 2018");
+  job2Date.appendChild(job2DateText);
+  const job2Desc = document.createElement("p");
+  const job2DescText = document.createTextNode("tentatives de créations de codes étranges");
+  job2Desc.appendChild(job2DescText);
+  job2.append(job2Title, job2Date, job2Desc);
+
+  expSection.append(expTitle, job1, job2);
+
+  // Section
+  const eduSection = document.createElement("section");
+  const eduTitle = document.createElement("h2");
+  const eduTitleText = document.createTextNode("Formation");
+  eduTitle.appendChild(eduTitleText);
+  const edu1 = document.createElement("p");
+  const edu1Text = document.createTextNode("Master en Informatique - ULB de Paris, 2015");
+  edu1.appendChild(edu1Text);
+  const edu2 = document.createElement("p");
+  const edu2Text = document.createTextNode("chipotages, 2013");
+  edu2.appendChild(edu2Text);
+  eduSection.append(eduTitle, edu1, edu2);
+
+  // Section
+  const skillsSection = document.createElement("section");
+  const skillsTitle = document.createElement("h2");
+  const skillsTitleText = document.createTextNode("Compétences");
+  skillsTitle.appendChild(skillsTitleText);
+  const skillsList = document.createElement("ul");
+  const skills = ["JavaScript", "React", "Node.js", "HTML/CSS", "Git", "Java"];
+  skills.forEach(skill => {
+    const li = document.createElement("li");
+    const liText = document.createTextNode(skill);
+    li.appendChild(liText);
+    skillsList.appendChild(li);
+  });
+  skillsSection.append(skillsTitle, skillsList);
+
+  // Assemblage final
+  cvContainer.append(header, infoSection, expSection, eduSection, skillsSection);
+  app.appendChild(cvContainer);
+
+  const style = document.createElement("style");
+  const styleContent = document.createTextNode(`
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .cv-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { background-color: #f4f4f4; padding: 20px; text-align: center; }
+        header img { width: 150px; height: 150px; border-radius: 50%; margin-bottom: 10px; }
+        h1 { color: #2c3e50; }
+        h2 { color: #3498db; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+        section { margin-bottom: 20px; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    `);
+  style.appendChild(styleContent);
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
